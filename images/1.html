@@ -1,0 +1,41 @@
+<div id="banner" class="swiper-container">
+	<ul class="swiper-wrapper">
+		<li class="swiper-slide" ng-repeat="i in arr.banner">
+			<img src="{{i.img}}" />
+		</li>
+	</ul>
+	<div class="swiper-pagination"></div>
+</div>
+<ul class="main">
+	<li ng-repeat="i in arr.main">
+		<img src="{{i.img}}" />
+		<p>{{i.p}}</p>
+	</li>
+</ul>
+<div class="main_a">
+	<div>小鲜说</div>
+	<div id="banner_a" class="swiper-container">
+		<ul class="swiper-wrapper">
+			<li class="swiper-slide" ng-repeat="i in arr.main_a">{{i.p}}</li>
+		</ul>
+	</div>
+</div>
+
+<div class="pirce">
+	<h2>—————每日特价—————</h2>
+	<div class="pirce_a" ng-repeat="i in arr.main_b">
+		<div>
+			<img src="1_35.png" alt="" />
+		</div>
+		<div>
+			<p style="font-size: 20px;">卫龙大面筋106g*4</p>
+			<p>你只准被我辣哭 不然不准哭</p>
+			<p>超值特惠</p>
+			<p style="color: yellow;">可用卷价￥17.8</p>
+			<p style="color: hotpink;">冰爽会员价￥9.9</p>
+		</div>
+		<div>
+			<img src="1_42.png" />
+		</div>
+	</div>
+</div>

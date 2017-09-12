@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<link rel="stylesheet" type="text/css" href="1.css" />
+		<script src="angular.min.js"></script>
+		<script src="angular-route1.4.5.js"></script>
+		<link rel="stylesheet" type="text/css" href="swiper.min.css" />
+		<script src="swiper.min.js"></script>
+	</head>
+
+	<body ng-app="app1" ng-controller="ct1">
+		<h>
+			<p></p>
+			<p>
+				<i>次日到达</i>
+				<span>北京吉利...</span>
+				<span>∨</span>
+			</p>
+			<p>
+				<img src="1_03.png" />
+				<span>搜索</span>
+			</p>
+		</div>
+		<ul class="huan">
+			<li>特价</li>
+			<li>水果</li>
+			<li>零食</li>
+			<li>蔬菜</li>
+			<li>乳品</li>
+			<li>肉蛋</li>
+		</ul>
+		<ng-view></ng-view>
+		<ul class="footer">
+			<li>
+				<a href="#yi">
+					<img src="1_68.png" />
+					<p>首页</p>
+				</a>
+			</li>
+			<li>
+				<a href="#er">
+					<img src="1_70.png" />
+					<p>福利社</p>
+				</a>
+			</li>
+			<li>
+				<a href="#san">
+					<img src="1_72.png" />
+					<p>购物车</p>
+				</a>
+			</li>
+			<li>
+				<a href="#si">
+					<img src="1_75.png" />
+					<p>我的</p>
+				</a>
+			</li>
+		</ul>
+	</body>
+	<script>
+		var app = angular.module("app1", ["ngRoute"]);
+		app.config(function($routeProvider) {
+			$routeProvider.when("/yi", {
+				templateUrl: "1.html",
+				controller: "ct2"
+			})
+			$routeProvider.when("/er", {
+				template: "<h1>今天今天今天今天今天今天今天今天</h1>",
+				controller: "ct3"
+			})
+			$routeProvider.when("/san", {
+				template: "<h1>昨天昨天昨天昨天昨天昨天昨天昨天</h1>",
+				controller: "ct4"
+			})
+			$routeProvider.when("/si", {
+				template: "<h1>明天明天明天明天明天明天明天明天明天</h1>",
+				controller: "ct5"
+			})
+			$routeProvider.otherwise({
+				redirecTo: "1.html"
+			})
+		})
+		app.controller("ct1", function($scope) {
+
+		})
+		app.controller("ct2", function($scope, $http, $timeout) {
+			$http.get("1.json").then(function(res) {
+				$scope.arr = res.data;
+				$timeout(function() {
+					var mySwiper = new Swiper("#banner", {
+						autoplay: 3000,
+						loop: true,
+						speed: 200,
+						pagination: ".swiper-pagination",
+						direction: 'vertical',
+					});
+					var mySwiper1 = new Swiper("#banner_a", {
+						autoplay: 1000,
+						speed: 200,
+						loop: true,
+						direction: 'vertical'
+					})
+
+				}, 200);
+			})
+		})
+	</script>
+
+</html>
